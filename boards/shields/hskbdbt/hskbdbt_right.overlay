@@ -11,20 +11,42 @@
 };
 
 &kscan {
-    // These are the *column* lines for the right half of the split matrix.
-    // Replace the pins below with the ones used by your hardware.
-    col-gpios
-        = <&xiao_d 4 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 3 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 2 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 1 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 0 GPIO_ACTIVE_HIGH>
-        , <&gpio0 9 GPIO_ACTIVE_HIGH>
-        ;
+// If the hardware does not use a switch matrix, change this to the
+        // appropriate driver and update the properties below to match.
+        // See https://zmk.dev/docs/config/kscan for supported key scan drivers.
+    compatible = "zmk,kscan-gpio-matrix";
+        // Set this to "col2row" or "row2col" to match the hardware. If using
+        // "row2col", change the col-gpios in the _left.overlay and _right.overlay
+        // files to (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) and the row-gpios here to
+        // GPIO_ACTIVE_HIGH.
+    diode-direction = "col2row";
+    wakeup-source;
+
+        // Replace these comments with the GPIO pins in the matrix.
+        // For Seeed XIAO, use &xiao_d labels (e.g., &xiao_d 0 for D0)
+        // See https://zmk.dev/docs/development/hardware-integration/new-shield#shield-overlays
+        // These are the *row* lines for the matrix.
+    row-gpios
+            = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            , <&xiao_d 7 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+            ;
+};
+ // Encoder support (EC11) --------------------------------------------------
+encoder: encoder0 {
+        compatible = "alps,ec11";
+        // Replace these pins with the ones used by your encoder's A/B outputs.
+        a-gpios = <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        // Typical EC11 encoders are 24 pulses (detents) per revolution.
+        steps = <24>;
+        status = "okay";
 };
 
-// Enable the encoder (EC11) on the right half.
-// If your encoder is located on the left half, move this into the left overlay.
-&encoder {
-    status = "okay";
+sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&encoder>;
+        // How many times to trigger a behavior per full rotation.
+        triggers-per-rotation = <20>;
 };
