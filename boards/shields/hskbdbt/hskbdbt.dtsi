@@ -12,29 +12,19 @@
     };
 
     kscan: kscan {
-        // If the hardware does not use a switch matrix, change this to the
-        // appropriate driver and update the properties below to match.
-        // See https://zmk.dev/docs/config/kscan for supported key scan drivers.
         compatible = "zmk,kscan-gpio-matrix";
-        // Set this to "col2row" or "row2col" to match the hardware. If using
-        // "row2col", change the col-gpios in the _left.overlay and _right.overlay
-        // files to (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN) and the row-gpios here to
-        // GPIO_ACTIVE_HIGH.
         diode-direction = "col2row";
         wakeup-source;
 
-        // Replace these comments with the GPIO pins in the matrix.
-        // For Seeed XIAO, use &xiao_d labels (e.g., &xiao_d 0 for D0)
-        // See https://zmk.dev/docs/development/hardware-integration/new-shield#shield-overlays
-        // These are the *row* lines for the matrix.
-    col-gpios
-        = <&gpio0 9 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 4 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 3 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 2 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 1 GPIO_ACTIVE_HIGH>
-        , <&xiao_d 0 GPIO_ACTIVE_HIGH>
-        ;
+        // Shared columns for both halves. Rows are defined per-half in overlays.
+        col-gpios
+            = <&gpio0 9 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 4 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 3 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 2 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 1 GPIO_ACTIVE_HIGH>
+            , <&xiao_d 0 GPIO_ACTIVE_HIGH>
+            ;
     };
 
     default_transform: default_transform {
@@ -53,20 +43,27 @@
     };
 
     // Encoder support (EC11) --------------------------------------------------
-    encoder: encoder0 {
+    left_encoder: left_encoder0 {
         compatible = "alps,ec11";
-        // Replace these pins with the ones used by your encoder's A/B outputs.
         a-gpios = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        // Typical EC11 encoders are 24 pulses (detents) per revolution.
         steps = <24>;
         status = "disabled";
     };
 
+    // Encoder support (EC11) --------------------------------------------------
+    right_encoder: right_encoder0 {
+        compatible = "alps,ec11";
+        a-gpios = <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <24>;
+        status = "disabled";
+    };
+
+    // Order here must match sensor-bindings order in keymap.
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
-        sensors = <&encoder>;
-        // How many times to trigger a behavior per full rotation.
+        sensors = <&left_encoder &right_encoder>;
         triggers-per-rotation = <20>;
     };
 };
