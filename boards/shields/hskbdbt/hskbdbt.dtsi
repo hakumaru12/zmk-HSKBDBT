@@ -33,7 +33,7 @@
     };
 
     // Encoder support (EC11) --------------------------------------------------
-    left_encoder: left_encoder0 {
+    left_encoder: left_encoder {
         compatible = "alps,ec11";
         a-gpios = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
@@ -42,7 +42,7 @@
     };
 
     // Encoder support (EC11) --------------------------------------------------
-    right_encoder: right_encoder0 {
+    right_encoder: right_encoder {
         compatible = "alps,ec11";
         a-gpios = <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
