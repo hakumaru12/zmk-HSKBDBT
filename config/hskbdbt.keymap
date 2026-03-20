@@ -7,10 +7,12 @@
 / {
     // Define a default keymap here.
     // See https://zmk.dev/docs/development/hardware-integration/new-shield#default-keymap.
+
     keymap {
         compatible = "zmk,keymap";
 
         // Sensor order follows `sensors = <&left_encoder &right_encoder>` in dtsi.
+
         sensor-bindings = <
             &inc_dec_kp C_VOL_UP C_VOL_DN
             &inc_dec_kp PG_UP PG_DN
@@ -18,10 +20,46 @@
 
         default_layer {
             bindings = <
-                &kp Q    &kp W    &kp E    &kp R    &kp T           &kp Y    &kp U     &kp I    &kp O     &kp P
-                &kp A    &studio_unlock    &kp D    &kp F    &kp G           &kp H    &kp J     &kp K    &kp L     &kp SEMI
-                &kp Z    &kp X    &kp C    &kp V    &kp B           &kp N    &kp M     &kp COMMA &kp DOT  &kp FSLH
-                &kp ESC  &kp TAB  &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI &kp RGUI  &kp RALT &kp LEFT  &kp DOWN  &kp UP  &studio_unlock
+&kp Q    &kp W           &kp E      &kp R      &kp T                         &kp Y     &kp U     &kp I      &kp O    &kp P
+&kp A    &studio_unlock  &kp D      &kp F      &kp G                         &kp H     &kp J     &kp K      &kp L    &kp SEMI
+&kp Z    &kp X           &kp C      &kp V      &kp B                         &kp N     &kp M     &kp COMMA  &kp DOT  &kp FSLH
+&kp ESC  &kp TAB         &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &kp RGUI  &kp RALT  &kp LEFT  &kp DOWN   &kp UP   &studio_unlock
+            >;
+        };
+
+        layer_1 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_2 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_3 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+            >;
+        };
+
+        layer_4 {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
             >;
         };
     };
