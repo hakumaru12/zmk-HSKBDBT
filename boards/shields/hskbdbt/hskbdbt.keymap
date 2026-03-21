@@ -23,6 +23,10 @@
                 &kp Z    &kp X    &kp C    &kp V    &kp B           &kp N    &kp M     &kp COMMA &kp DOT  &kp FSLH
                 &kp ESC  &kp TAB  &kp LSHFT &kp LCTRL &kp LALT  &kp LGUI &kp RGUI  &kp RALT &kp LEFT  &kp DOWN  &kp UP  &kp RIGHT
             >;
+
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp PG_UP PG_DN>;
         };
     };
 };
