@@ -104,6 +104,9 @@
 &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none                          &mkp MB4        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &none
 &none           &to 0           &none           &none            &none           &none  &to 0   &none           &none           &none           &none            &none
             >;
+            sensor-bindings =
+                <&inc_dec_kp C_NEXT C_PREV>,
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };

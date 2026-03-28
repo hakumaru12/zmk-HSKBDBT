@@ -3,8 +3,6 @@
 include:
   - board: seeeduino_xiao_ble
     shield: hskbdbt_left
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
     artifact-name: hskbdbt_left
   - board: seeeduino_xiao_ble
     shield: hskbdbt_right
