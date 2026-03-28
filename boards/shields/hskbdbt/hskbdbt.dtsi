@@ -38,7 +38,7 @@
         a-gpios = <&xiao_d 10 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 9 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <24>;
-        status = "disabled";
+           status = "okay";
     };
 
     // Encoder support (EC11) --------------------------------------------------
@@ -47,7 +47,7 @@
         a-gpios = <&xiao_d 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         b-gpios = <&xiao_d 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
         steps = <24>;
-        status = "disabled";
+           status = "okay";
     };
 
     // Order here must match sensor-bindings order in keymap.
