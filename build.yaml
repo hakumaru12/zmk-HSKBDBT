@@ -7,3 +7,7 @@ include:
   - board: seeeduino_xiao_ble
     shield: hskbdbt_right
     artifact-name: hskbdbt_right
+
+  - board: seeeduino_xiao_ble
+    shield: settings_reset
+    artifact-name: settings_reset
