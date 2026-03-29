@@ -53,10 +53,6 @@
 
         // Sensor order follows `sensor-bindings = <&left_encoder &right_encoder>` in dtsi.
 
-        sensor-bindings = <
-            &inc_dec_kp C_VOL_UP C_VOL_DN
-            &inc_dec_kp PG_UP PG_DN
-        >;
 
         default_layer {
             bindings = <

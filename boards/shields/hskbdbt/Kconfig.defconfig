@@ -16,4 +16,5 @@ config ZMK_SPLIT
 config NFCT_PINS_AS_GPIOS
     default y
 
+
 endif # SHIELD_HSKBDBT_LEFT || SHIELD_HSKBDBT_RIGHT
