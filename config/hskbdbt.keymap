@@ -37,6 +37,10 @@
             bindings = <&kp RA(ENTER)>;
             key-positions = <37 25>;
         };
+        ZENHAN {
+            bindings = <&kp LANG_ZENKAKUHANKAKU>;
+            key-positions = <11 12 13>;
+        };
     };
 
     macros {
