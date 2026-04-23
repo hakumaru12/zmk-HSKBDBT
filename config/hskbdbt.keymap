@@ -63,7 +63,7 @@
 &kp Q           &kp L     &kp U    &kp COMMA  &kp DOT                    &kp F      &kp W      &kp R     &kp Y     &kp P
 &kp E           &kp I     &kp A    &kp O      &kp MINUS                  &kp K      &kp T      &kp N     &kp S     &kp H
 &kp Z           &kp X     &kp C    &kp V      &kp SEMI                   &kp G      &kp D      &kp M     &kp J     &kp B
-&kp LCTRL       &kp LGUI  &to 1    &kp LSHFT  &kp DEL    &kp ESC  &to 0  &kp ENTER  &kp SPACE  &kp BSPC  &kp RALT  &kp SLASH
+&kp LCTRL       &kp LGUI  &kp TAB    &kp LSHFT  &kp DEL    &to 1  &to 0  &kp ENTER  &kp SPACE  &kp BSPC  &kp RALT  &kp SLASH
 >;
 
             sensor-bindings =
