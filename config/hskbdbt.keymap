@@ -41,6 +41,10 @@
             bindings = <&kp LANG_ZENKAKUHANKAKU>;
             key-positions = <11 12 13>;
         };
+        TW_POST {
+            bindings = <&kp RS(ENTER)>;
+            key-positions = <37 26>;
+        };
     };
 
     macros {
