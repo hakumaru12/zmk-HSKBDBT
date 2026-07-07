@@ -42,7 +42,7 @@
             key-positions = <11 12 13>;
         };
         TW_POST {
-            bindings = <&kp RS(ENTER)>;
+            bindings = <&kp RC(ENTER)>;
             key-positions = <37 26>;
         };
     };
